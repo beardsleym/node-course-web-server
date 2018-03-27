@@ -21,12 +21,12 @@ app.use((req, res, next) => {
   next();
 })
 
-//Middleware res.render maintainence.
-app.use((req, res, next) => {
-  res.render('maintainence.hbs', {
-    pageTitle: 'Maintainence Mode',
-  });
-})
+//Middleware res.render maintainence mode.
+// app.use((req, res, next) => {
+//   res.render('maintainence.hbs', {
+//     pageTitle: 'Maintainence Mode',
+//   });
+// })
 
 // app.use(express.static('~/node-web-server/public/html'));
 app.use(express.static(__dirname + "/public/html"));
@@ -54,6 +54,12 @@ app.get('/about', (req, res) => {
     pageTitle: 'About Page',
   });
 });
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects Page',
+  })
+})
 
 app.get('/bad', (req, res) => {
   res.send({
